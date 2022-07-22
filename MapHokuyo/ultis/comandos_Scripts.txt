@@ -27,10 +27,9 @@
 - Rosrun
     catkin_make
     source devel/setup.bash
-    roslaunch map_hokuyo run.launch
     roscore
-    rosrun dynamixel_mx dynamixel_mx.py
-    rosrun map_hokuyo MapHokuyo.py
+    rosrun map_hokuyo dynamixel_mx.py
+    rosrun map_hokuyo Mapping.py
     rosrun urg_node urg_node _ip_address:="192.168.0.10" _publish_multiecho:="true"
     rosbag record -a
 
