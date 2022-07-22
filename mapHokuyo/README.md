@@ -1,4 +1,4 @@
-# MapLiDar
+# MapHokuyo
 
 - DynamixelMx
 
