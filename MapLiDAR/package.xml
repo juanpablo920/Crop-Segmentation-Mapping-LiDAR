@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>map_hokuyo</name>
+  <name>map_lidar</name>
   <version>0.0.0</version>
-  <description>The map_hokuyo package</description>
+  <description>The map_lidar package</description>
 
   <maintainer email="2420171051@estudiantesunibague.edu.co">Juan</maintainer>
   <license>TODO</license>
