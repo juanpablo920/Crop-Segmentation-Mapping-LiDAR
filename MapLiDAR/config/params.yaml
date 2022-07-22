@@ -14,3 +14,19 @@ dynamixel_mx:
   step_scan: 3
   delta_error: 5
   resolution: 11.175
+
+map_hokuyo:
+  origins:
+    world2motor:
+      xyz: [0, 0, 1.25]
+
+    motor2lidar:
+      xyz: [0, 0, 0.05]
+
+  coordinate:
+    xyz: [-12.127, 0.4, -0.6099]
+    rpy: [0, 0, 180]
+
+    # Roll = X
+    # Pitch = Y
+    # Yaw = Z

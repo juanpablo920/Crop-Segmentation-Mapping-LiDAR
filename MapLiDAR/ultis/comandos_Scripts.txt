@@ -34,8 +34,6 @@
     rosrun urg_node urg_node _ip_address:="192.168.0.10" _publish_multiecho:="true"
     rosbag record -a
 
-    
-
     rosrun rqt_topic rqt_topic
     rosrun rqt_plot rqt_plot
     /dynamixel_mx/pose/point/x
