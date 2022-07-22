@@ -4,7 +4,9 @@ class ParamServer:
         # /home/sirui/pi_ws/src/
         # /home/avila/Documentos/
         # /home/juanpablo/
+
         self.prefix = "/home/pocampo/"
+        self.prefix += "Crop-Segmentation-Mapping-LiDAR/"
 
         # example_train
         # PCD_NIR_training_4M_low50
