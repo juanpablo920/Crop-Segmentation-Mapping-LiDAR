@@ -7,7 +7,7 @@ parSer = ParamServer()
 
 pwd_file = ""
 pwd_file += parSer.prefix
-pwd_file += "pointProyect/data/validation/"
+pwd_file += "data/validation/"
 file = pwd_file + parSer.data_file_valid
 
 data = pd.read_csv(file, sep=" ", header=0)

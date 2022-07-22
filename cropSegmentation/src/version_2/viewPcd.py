@@ -16,13 +16,13 @@ print("")
 opcion = input("opcion: ")
 
 if opcion == "1":
-    file += "pointProyect/data/training/"
+    file += "data/training/"
     file += parSer.data_file_train
 elif opcion == "2":
-    file += "pointProyect/data/validation/"
+    file += "data/validation/"
     file += parSer.data_file_valid
 elif opcion == "3":
-    file += "pointProyect/data/results/"
+    file += "data/results/"
     file += "clf_" + parSer.data_file_valid
 else:
     print("="*10)

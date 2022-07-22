@@ -16,7 +16,7 @@ class dpsAnalysis:
         print("read_data")
         file = ""
         file += self.parSer.prefix
-        file += "pointProyect/data/training/"
+        file += "data/training/"
         file += self.parSer.data_file
 
         data = pd.read_csv(file, sep=" ", header=0)
@@ -42,7 +42,7 @@ class dpsAnalysis:
         print("setting_files_P")
         file_base = ""
         file_base += self.parSer.prefix
-        file_base += "pointProyect/dpsAnalysis/kn/data/P_"
+        file_base += "dpsAnalysis/kn/data/P_"
         for dsp_type in self.parSer.dsp_types:
             file_tmp = file_base + dsp_type + ".txt"
             with open(file_tmp, 'w') as f:
@@ -89,7 +89,7 @@ class dpsAnalysis:
     def save_data_P_dps_type(self, dsp_type, kn, P12, P13, P32):
         file = ""
         file += self.parSer.prefix
-        file += "pointProyect/dpsAnalysis/kn/data/P_"
+        file += "dpsAnalysis/kn/data/P_"
         file += dsp_type + ".txt"
         with open(file, 'a') as f:
             f.write(
@@ -98,7 +98,7 @@ class dpsAnalysis:
     def save_data_P_time(self, kn, time):
         file = ""
         file += self.parSer.prefix
-        file += "pointProyect/dpsAnalysis/kn/data/P_time.txt"
+        file += "dpsAnalysis/kn/data/P_time.txt"
         with open(file, 'a') as f:
             f.write(str(kn)+" " + str(time)+"\n")
 
@@ -162,11 +162,11 @@ class dpsAnalysis:
 
         pwd_imagen = ""
         pwd_imagen += self.parSer.prefix
-        pwd_imagen += "pointProyect/dpsAnalysis/kn/images/"
+        pwd_imagen += "dpsAnalysis/kn/images/"
 
         pwd_files = ""
         pwd_files += self.parSer.prefix
-        pwd_files += "pointProyect/dpsAnalysis/kn/data/"
+        pwd_files += "dpsAnalysis/kn/data/"
 
         name_files = os.listdir(pwd_files)
         name_files.remove("data.txt")

@@ -17,7 +17,7 @@ class dpsAnalysis:
         print("read_data")
         file = ""
         file += self.parSer.prefix
-        file += "pointProyect/data/training/"
+        file += "data/training/"
         file += self.parSer.data_file_train
 
         data = pd.read_csv(file, sep=",", header=0)
@@ -34,7 +34,7 @@ class dpsAnalysis:
         print("setting_P123")
         file_base = ""
         file_base += self.parSer.prefix
-        file_base += "pointProyect/dpsAnalysis/radius/data/P123/P_"
+        file_base += "dpsAnalysis/radius/data/P123/P_"
 
         for dsp_type in self.parSer.dsp_types:
             file_P123 = file_base + dsp_type + ".txt"
@@ -49,7 +49,7 @@ class dpsAnalysis:
         print("setting_dsp")
         file_base = ""
         file_base += self.parSer.prefix
-        file_base += "pointProyect/dpsAnalysis/radius/data/dsp/"
+        file_base += "dpsAnalysis/radius/data/dsp/"
 
         for dsp_type in self.parSer.dsp_types:
             file_dsp = file_base + dsp_type + ".txt"
@@ -102,7 +102,7 @@ class dpsAnalysis:
     def save_P123_dps_type(self, dsp_type, radius, P12, P13, P32):
         file = ""
         file += self.parSer.prefix
-        file += "pointProyect/dpsAnalysis/radius/data/P123/P_"
+        file += "dpsAnalysis/radius/data/P123/P_"
         file += dsp_type + ".txt"
         with open(file, 'a') as f:
             f.write(
@@ -111,14 +111,14 @@ class dpsAnalysis:
     def save_P123_time(self, radius, time):
         file = ""
         file += self.parSer.prefix
-        file += "pointProyect/dpsAnalysis/radius/data/P123/P_time.txt"
+        file += "dpsAnalysis/radius/data/P123/P_time.txt"
         with open(file, 'a') as f:
             f.write(str(radius)+" "+str(time)+"\n")
 
     def save_dps_type(self, dsp_type, X, Y, Z, dsp_value):
         file = ""
         file += self.parSer.prefix
-        file += "pointProyect/dpsAnalysis/radius/data/dsp/"
+        file += "dpsAnalysis/radius/data/dsp/"
         file += dsp_type + ".txt"
         with open(file, 'a') as f:
             f.write(str(X)+" "+str(Y)+" "+str(Z)+" "+str(dsp_value)+"\n")
@@ -126,7 +126,7 @@ class dpsAnalysis:
     def save_dsp_radius(self, radius):
         file = ""
         file += self.parSer.prefix
-        file += "pointProyect/dpsAnalysis/radius/data/dsp/radius.txt"
+        file += "dpsAnalysis/radius/data/dsp/radius.txt"
         with open(file, 'a') as f:
             f.write(str(radius)+"\n")
 
@@ -200,7 +200,7 @@ class dpsAnalysis:
     def graph_P123_dps_type(self, dps_type, P12, P13, P32, radius):
         pwd_imagen = ""
         pwd_imagen += self.parSer.prefix
-        pwd_imagen += "pointProyect/dpsAnalysis/radius/images/graphics_P123/"
+        pwd_imagen += "dpsAnalysis/radius/images/graphics_P123/"
 
         max_P12 = np.amax(P12)
         max_P13 = np.amax(P13)
@@ -237,7 +237,7 @@ class dpsAnalysis:
     def graph_time_P(self, time, radius):
         pwd_imagen = ""
         pwd_imagen += self.parSer.prefix
-        pwd_imagen += "pointProyect/dpsAnalysis/radius/images/graphics_P123/"
+        pwd_imagen += "dpsAnalysis/radius/images/graphics_P123/"
 
         plt.figure()
         plt.plot(radius, time, "C0", label="time")
@@ -252,7 +252,7 @@ class dpsAnalysis:
     def graph_average_P123_dps_type(self, dps_type, P12, P13, P32, radius):
         pwd_imagen = ""
         pwd_imagen += self.parSer.prefix
-        pwd_imagen += "pointProyect/dpsAnalysis/radius/images/average_P123/"
+        pwd_imagen += "dpsAnalysis/radius/images/average_P123/"
 
         average_P = (P12 + P13 + P32)/3
         max_average = np.amax(average_P)
@@ -276,7 +276,7 @@ class dpsAnalysis:
     def graph_selection_Radius(self, averages_P, radius):
         pwd_imagen = ""
         pwd_imagen += self.parSer.prefix
-        pwd_imagen += "pointProyect/dpsAnalysis/radius/images/selection_Radius/"
+        pwd_imagen += "dpsAnalysis/radius/images/selection_Radius/"
 
         max_averages_P = np.amax(averages_P)
         posMax_averages = np.where(averages_P == max_averages_P)
@@ -297,7 +297,7 @@ class dpsAnalysis:
     def graphics_P123(self):
         pwd_files = ""
         pwd_files += self.parSer.prefix
-        pwd_files += "pointProyect/dpsAnalysis/radius/data/P123/"
+        pwd_files += "dpsAnalysis/radius/data/P123/"
 
         name_files = os.listdir(pwd_files)
         name_files.remove("data.txt")
@@ -338,7 +338,7 @@ class dpsAnalysis:
     def graph_gaussiana_dps_type(self, dps_type, dsp_tree, dsp_ground, dsp_marcador):
         pwd_imagen = ""
         pwd_imagen += self.parSer.prefix
-        pwd_imagen += "pointProyect/dpsAnalysis/radius/images/gaussiana_dps/"
+        pwd_imagen += "dpsAnalysis/radius/images/gaussiana_dps/"
 
         tree_mean = np.mean(dsp_tree)
         tree_std = np.std(dsp_tree)
@@ -366,7 +366,7 @@ class dpsAnalysis:
     def graph_histograms_dps(self, dps_type, dsp_values):
         pwd_imagen = ""
         pwd_imagen += self.parSer.prefix
-        pwd_imagen += "pointProyect/dpsAnalysis/radius/images/histograms_dps/"
+        pwd_imagen += "dpsAnalysis/radius/images/histograms_dps/"
 
         plt.figure()
         plt.hist(dsp_values, bins=255, label=dps_type)
@@ -378,7 +378,7 @@ class dpsAnalysis:
     def graphics_dsp(self):
         pwd_files = ""
         pwd_files += self.parSer.prefix
-        pwd_files += "pointProyect/dpsAnalysis/radius/data/dsp/"
+        pwd_files += "dpsAnalysis/radius/data/dsp/"
 
         name_files = os.listdir(pwd_files)
         name_files.remove("data.txt")

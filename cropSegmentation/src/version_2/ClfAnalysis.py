@@ -29,7 +29,7 @@ class clfAnalysis:
         print("read_data_train")
         file_base = ""
         file_base += self.parSer.prefix
-        file_base += "pointProyect/data/"
+        file_base += "data/"
 
         file_train = file_base + "training/"
         file_train += self.parSer.data_file_train
@@ -48,7 +48,7 @@ class clfAnalysis:
         print("read_data")
         file_base = ""
         file_base += self.parSer.prefix
-        file_base += "pointProyect/data/"
+        file_base += "data/"
 
         file_valid = file_base + "validation/"
         file_valid += self.parSer.data_file_valid
@@ -68,7 +68,7 @@ class clfAnalysis:
 
         file_base = ""
         file_base += self.parSer.prefix
-        file_base += "pointProyect/clfAnalysis/data/dsp/"
+        file_base += "clfAnalysis/data/dsp/"
 
         file_train = file_base + "dsp_train.txt"
 
@@ -91,7 +91,7 @@ class clfAnalysis:
 
         file_base = ""
         file_base += self.parSer.prefix
-        file_base += "pointProyect/clfAnalysis/data/dsp/"
+        file_base += "clfAnalysis/data/dsp/"
 
         file_valid = file_base + "dsp_valid.txt"
 
@@ -112,7 +112,7 @@ class clfAnalysis:
     def read_model_clf_type(self, clf_type):
         file_base = ""
         file_base += self.parSer.prefix
-        file_base += "pointProyect/clfAnalysis/data/models_clf/"
+        file_base += "clfAnalysis/data/models_clf/"
 
         file = file_base + clf_type + ".pkl"
 
@@ -123,7 +123,7 @@ class clfAnalysis:
         print("read_results_PCD_validation")
         file = ""
         file += self.parSer.prefix
-        file += "pointProyect/clfAnalysis/data/results_PCD_validation/"
+        file += "clfAnalysis/data/results_PCD_validation/"
         file += "clf_" + self.parSer.data_file_valid
 
         data = pd.read_csv(file, sep=" ", header=0)
@@ -143,7 +143,7 @@ class clfAnalysis:
         print("setting_dsp_train")
         file_base = ""
         file_base += self.parSer.prefix
-        file_base += "pointProyect/clfAnalysis/data/dsp/"
+        file_base += "clfAnalysis/data/dsp/"
 
         file_train = file_base + "dsp_train.txt"
 
@@ -159,7 +159,7 @@ class clfAnalysis:
         print("setting_dsp_valid")
         file_base = ""
         file_base += self.parSer.prefix
-        file_base += "pointProyect/clfAnalysis/data/dsp/"
+        file_base += "clfAnalysis/data/dsp/"
 
         file_valid = file_base + "dsp_valid.txt"
 
@@ -175,7 +175,7 @@ class clfAnalysis:
         print("setting_report_clf")
         file_base = ""
         file_base += self.parSer.prefix
-        file_base += "pointProyect/clfAnalysis/data/models_clf/"
+        file_base += "clfAnalysis/data/models_clf/"
         file = file_base + "report_clf.txt"
 
         with open(file, 'w') as f:
@@ -184,7 +184,7 @@ class clfAnalysis:
     def save_dps(self, dsp_type, X, Y, Z, Classification, dsp_values):
         file = ""
         file += self.parSer.prefix
-        file += "pointProyect/clfAnalysis/data/dsp/"
+        file += "clfAnalysis/data/dsp/"
         file += dsp_type + ".txt"
 
         linea = ""
@@ -202,7 +202,7 @@ class clfAnalysis:
     def save_model_clf_type(self, clf_type, clf):
         file_base = ""
         file_base += self.parSer.prefix
-        file_base += "pointProyect/clfAnalysis/data/models_clf/"
+        file_base += "clfAnalysis/data/models_clf/"
 
         file = file_base + clf_type + ".pkl"
 
@@ -211,7 +211,7 @@ class clfAnalysis:
     def save_report_clf_type(self, clf, accuracy, f1):
         file_base = ""
         file_base += self.parSer.prefix
-        file_base += "pointProyect/clfAnalysis/data/models_clf/"
+        file_base += "clfAnalysis/data/models_clf/"
         file = file_base + "report_clf.txt"
 
         linea = ""
@@ -439,7 +439,7 @@ class clfAnalysis:
         print("-> save_clf_results")
         file = ""
         file += self.parSer.prefix
-        file += "pointProyect/clfAnalysis/data/results_PCD_validation/"
+        file += "clfAnalysis/data/results_PCD_validation/"
         file += "clf_" + self.parSer.data_file_valid
 
         with open(file, 'w') as f:
@@ -490,7 +490,7 @@ class clfAnalysis:
 
         file_img = ""
         file_img += self.parSer.prefix
-        file_img += "pointProyect/clfAnalysis/images/"
+        file_img += "clfAnalysis/images/"
         file_img += "Silueta_vs_Clases.png"
 
         plt.plot(numbers_tree, indices_silueta, 'b')
@@ -509,7 +509,7 @@ class clfAnalysis:
         print("-> save_PCD_individualized")
         file = ""
         file += self.parSer.prefix
-        file += "pointProyect/clfAnalysis/data/results_PCD_validation/"
+        file += "clfAnalysis/data/results_PCD_validation/"
         file += "individual_xyz_" + self.parSer.data_file_valid
 
         with open(file, 'w') as f:

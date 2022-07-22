@@ -17,7 +17,7 @@ class clustering:
 #         print("read_data")
 #         file = ""
 #         file += self.parSer.prefix
-#         file += "pointProyect/data/validation/"
+#         file += "data/validation/"
 #         file += self.parSer.data_file_valid
 
 #         data = pd.read_csv(file, sep=" ", header=0)
@@ -98,7 +98,7 @@ class clustering:
         print("read_data_clustering")
         file_clustering = ""
         file_clustering += self.parSer.prefix
-        file_clustering += "pointProyect/data/validation/"
+        file_clustering += "data/validation/"
         file_clustering += self.parSer.data_file_valid_clustering
 
         data_clustering = pd.read_csv(file_clustering, sep=" ", header=0)
@@ -118,7 +118,7 @@ class clustering:
         print("read_data")
         file = ""
         file += self.parSer.prefix
-        file += "pointProyect/data/validation/"
+        file += "data/validation/"
         file += self.parSer.data_file_valid
 
         data = pd.read_csv(file, sep=" ", header=0)

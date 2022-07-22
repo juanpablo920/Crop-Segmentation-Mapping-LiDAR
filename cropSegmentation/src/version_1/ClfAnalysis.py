@@ -36,7 +36,7 @@ class clfAnalysis:
         print("read_data")
         file_base = ""
         file_base += self.parSer.prefix
-        file_base += "pointProyect/data/"
+        file_base += "data/"
 
         file_train = file_base + "training/"
         file_train += self.parSer.data_file_train
@@ -69,7 +69,7 @@ class clfAnalysis:
 
         file_base = ""
         file_base += self.parSer.prefix
-        file_base += "pointProyect/clfAnalysis/data/"
+        file_base += "clfAnalysis/data/"
 
         file_train = file_base + "dsp_train.txt"
         file_valid = file_base + "dsp_valid.txt"
@@ -106,7 +106,7 @@ class clfAnalysis:
         print("setting_dsp")
         file_base = ""
         file_base += self.parSer.prefix
-        file_base += "pointProyect/clfAnalysis/data/"
+        file_base += "clfAnalysis/data/"
 
         file_train = file_base + "dsp_train.txt"
         file_valid = file_base + "dsp_valid.txt"
@@ -126,7 +126,7 @@ class clfAnalysis:
         print("setting_clf")
         file_base = ""
         file_base += self.parSer.prefix
-        file_base += "pointProyect/clfAnalysis/data/"
+        file_base += "clfAnalysis/data/"
         file = file_base + "clf_report.txt"
 
         with open(file, 'w') as f:
@@ -136,7 +136,7 @@ class clfAnalysis:
     #     print("setting_results")
     #     file_base = ""
     #     file_base += self.parSer.prefix
-    #     file_base += "pointProyect/data/results/"
+    #     file_base += "data/results/"
     #     file = file_base + "clf_" + self.parSer.data_file_valid
 
     #     with open(file, 'w') as f:
@@ -145,7 +145,7 @@ class clfAnalysis:
     def save_dps(self, dsp_type, X, Y, Z, Classification, dsp_values):
         file = ""
         file += self.parSer.prefix
-        file += "pointProyect/clfAnalysis/data/"
+        file += "clfAnalysis/data/"
         file += dsp_type + ".txt"
 
         linea = ""
@@ -163,7 +163,7 @@ class clfAnalysis:
     def save_report_clf_type(self, clf, accuracy, f1):
         file_base = ""
         file_base += self.parSer.prefix
-        file_base += "pointProyect/clfAnalysis/data/"
+        file_base += "clfAnalysis/data/"
         file = file_base + "clf_report.txt"
 
         linea = ""
@@ -179,7 +179,7 @@ class clfAnalysis:
     # def save_results(self, X, Y, Z, Classification):
     #     file_base = ""
     #     file_base += self.parSer.prefix
-    #     file_base += "pointProyect/data/results/"
+    #     file_base += "data/results/"
     #     file = file_base + "clf_" + self.parSer.data_file_valid
 
     #     linea = ""
