@@ -6,7 +6,7 @@ class ParamServer:
         # /home/juanpablo/
 
         self.prefix = "/home/pocampo/"
-        self.prefix += "Crop-Segmentation-Mapping-LiDAR/cropSegmentation"
+        self.prefix += "Crop-Segmentation-Mapping-LiDAR/cropSegmentation/"
 
         # example_train
         # PCD_NIR_training_4M_low50
