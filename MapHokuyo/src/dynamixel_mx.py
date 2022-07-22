@@ -13,7 +13,7 @@ class DynamixelMx:
 
     def __init__(self):
         r = rospkg.RosPack()
-        pwd_params = r.get_path('dynamixel_mx')+'/config/params.yaml'
+        pwd_params = r.get_path('map_hokuyo')+'/config/params.yaml'
 
         with open(pwd_params, 'r') as f:
             params = yaml.load(f)["dynamixel_mx"]

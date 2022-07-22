@@ -12,7 +12,7 @@ import numpy as np
 import open3d as o3d
 
 
-class MapHokuyo:
+class Mapping:
 
     def __init__(self):
         self.sub_lidar = None
@@ -27,7 +27,7 @@ class MapHokuyo:
         pwd_params = r.get_path('map_hokuyo')+'/config/params.yaml'
 
         with open(pwd_params, 'r') as f:
-            params = yaml.load(f, Loader=yaml.FullLoader)["map_hokuyo"]
+            params = yaml.load(f, Loader=yaml.FullLoader)["mapping"]
 
         self.coordinate_xyz = params["coordinate"]["xyz"]
         self.coordinate_rpy = params["coordinate"]["rpy"]
@@ -55,11 +55,11 @@ class MapHokuyo:
 
     def setting_publisher(self):
         self.pub_lidar_flag = rospy.Publisher(
-            "map_hokuyo/lidar/flag",
+            "mapping/lidar/flag",
             Int16)
 
         self.pub_motor_flag = rospy.Publisher(
-            "map_hokuyo/motor/flag",
+            "mapping/motor/flag",
             Int16)
 
     def scanning(self, multiEcho_ros):
@@ -185,13 +185,13 @@ class MapHokuyo:
 
 
 if __name__ == '__main__':
-    rospy.init_node('map_hokuyo')
-    map_hokuyo = MapHokuyo()
-    map_hokuyo.setting_publisher()
-    map_hokuyo.setting_subscriber()
+    rospy.init_node('mapping')
+    mapping = Mapping()
+    mapping.setting_publisher()
+    mapping.setting_subscriber()
     rospy.loginfo("\033[1;32m-> Map.\033[0m")
     rospy.spin()
 
     print("")
-    map_hokuyo.projectCoordinates()
-    map_hokuyo.save_mapa()
+    mapping.projectCoordinates()
+    mapping.save_mapa()
