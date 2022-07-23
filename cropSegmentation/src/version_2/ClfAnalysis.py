@@ -521,9 +521,10 @@ class clfAnalysis:
         file_base = ""
         file_base += self.parSer.prefix
         file_base += "clfAnalysis/data/results_PCD_validation/"
+
         file_individual = file_base + "individual_xy_" + self.parSer.data_file_valid
 
-        file_report_height = file_base + "alrutas_tree.txt"
+        file_report_height = file_base + "alrutas_tree_" + self.parSer.data_file_valid
 
         with open(file_individual, 'w') as f:
             f.write("X Y Z Classification height\n")
