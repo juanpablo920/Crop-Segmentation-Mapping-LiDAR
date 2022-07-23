@@ -518,12 +518,14 @@ class clfAnalysis:
             alrutas_tree[clas_tmp] = altura_clas_tmp
 
         print("-> save_PCD_individualized")
-        file = ""
-        file += self.parSer.prefix
-        file += "clfAnalysis/data/results_PCD_validation/"
-        file += "individual_xy_" + self.parSer.data_file_valid
+        file_base = ""
+        file_base += self.parSer.prefix
+        file_base += "clfAnalysis/data/results_PCD_validation/"
+        file_individual = file_base + "individual_xy_" + self.parSer.data_file_valid
 
-        with open(file, 'w') as f:
+        file_report_height = file_base + "alrutas_tree.txt"
+
+        with open(file_individual, 'w') as f:
             f.write("X Y Z Classification height\n")
             for idx, XYZ in enumerate(self.pcd_results_validation.points):
                 X, Y, Z = XYZ
@@ -532,6 +534,12 @@ class clfAnalysis:
                 f.write(str(X)+" "+str(Y)+" "+str(Z) +
                         " "+str(num_tree_tmp) +
                         " "+str(alruta_tree_tmp)+"\n")
+
+        with open(file_report_height, 'w') as f:
+            f.write("num_tree height\n")
+            for num_tree_tmp in alrutas_tree:
+                alruta_tree_tmp = alrutas_tree[num_tree_tmp]
+                f.write(str(num_tree_tmp)+" "+str(alruta_tree_tmp)+"\n")
 
 
 if __name__ == '__main__':
