@@ -502,7 +502,8 @@ class clfAnalysis:
 
         print("-> individualizing")
 
-        pcd_results_validation = np.array(self.pcd_results_validation.points)
+        pcd_results_validation = np.array(
+            self.pcd_results_validation.points)[:, :2]
 
         kmeans = KMeans(n_clusters=num_tree).fit(pcd_results_validation)
         Classification_cluster = kmeans.labels_
