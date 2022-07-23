@@ -456,9 +456,9 @@ class clfAnalysis:
         print("")
 
         print("-> lowResolutionPcd")
-        lowPcd_xyz = self.pcd_results_validation.uniform_down_sample(10)
-        lowPcd_xyz = np.array(lowPcd_xyz.points)[:, :2]
-        print("-> low datos:", lowPcd_xyz.shape)
+        lowPcd = self.pcd_results_validation.uniform_down_sample(10)
+        lowPcd = np.array(lowPcd.points)[:, :2]
+        print("-> low datos:", lowPcd.shape)
         print("")
 
         print("-> cluster")
@@ -468,11 +468,11 @@ class clfAnalysis:
             print("")
             print("-> numero de arboles: ", tmp_num_tree)
 
-            kmeans = KMeans(n_clusters=tmp_num_tree).fit(lowPcd_xyz)
+            kmeans = KMeans(n_clusters=tmp_num_tree).fit(lowPcd)
             Classification_cluster = kmeans.labels_
 
             tmp_silueta = silhouette_score(
-                lowPcd_xyz,
+                lowPcd,
                 Classification_cluster,
                 metric='euclidean')
 
@@ -501,18 +501,19 @@ class clfAnalysis:
         plt.savefig(file_img)
 
         print("-> individualizing")
+        pcd_tmp = np.array(self.pcd_results_validation.points)  # [:, :2]
+        print(pcd_tmp)
 
-        pcd_results_validation = np.array(
-            self.pcd_results_validation.points)[:, :2]
-
-        kmeans = KMeans(n_clusters=num_tree).fit(pcd_results_validation)
+        kmeans = KMeans(n_clusters=num_tree).fit(pcd_tmp)
         Classification_cluster = kmeans.labels_
 
         print("-> height_calculation")
+        pcd_z = np.array(self.pcd_results_validation.points)[:, 2]
+        print(pcd_z)
 
-        print(type(Classification_cluster))
-        list_set = set(Classification_cluster)
-        print(list_set)
+        for clas_tmp in set(Classification_cluster):
+            print(clas_tmp)
+            pos_clas_tmp = np.where(Classification_cluster == clas_tmp)
 
         print("-> save_PCD_individualized")
         file = ""
@@ -522,7 +523,7 @@ class clfAnalysis:
 
         with open(file, 'w') as f:
             f.write("X Y Z Classification\n")
-            for idx, XYZ in enumerate(self.pcd_results_validation.points):
+            for idx, XYZ in enumerate(self.pcd_tmp.points):
                 X, Y, Z = XYZ
                 f.write(str(X)+" "+str(Y)+" "+str(Z) +
                         " "+str(Classification_cluster[idx])+"\n")
