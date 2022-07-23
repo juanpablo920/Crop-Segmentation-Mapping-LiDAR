@@ -508,10 +508,11 @@ class clfAnalysis:
 
         print("-> height_calculation")
         pcd_z = np.array(self.pcd_results_validation.points)[:, 2]
-        print(pcd_z.shape)
 
         for clas_tmp in set(Classification_cluster):
             pos_clas_tmp = np.where(Classification_cluster == clas_tmp)
+            pcd_z_tmp = pcd_z[pos_clas_tmp]
+            print(pcd_z_tmp.shape)
 
         print("-> save_PCD_individualized")
         file = ""
@@ -521,7 +522,7 @@ class clfAnalysis:
 
         with open(file, 'w') as f:
             f.write("X Y Z Classification\n")
-            for idx, XYZ in enumerate(self.pcd_tmp.points):
+            for idx, XYZ in enumerate(self.pcd_results_validation.points):
                 X, Y, Z = XYZ
                 f.write(str(X)+" "+str(Y)+" "+str(Z) +
                         " "+str(Classification_cluster[idx])+"\n")
