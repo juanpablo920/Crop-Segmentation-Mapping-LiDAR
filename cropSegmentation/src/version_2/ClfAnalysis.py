@@ -458,7 +458,7 @@ class clfAnalysis:
 
         print("-> lowResolutionPcd")
         lowPcd = self.pcd_results_validation.uniform_down_sample(10)
-        lowPcd = np.array(lowPcd.points)[:, :2]
+        lowPcd = np.array(lowPcd.points)  # [:, :2]
         print("-> low datos:", lowPcd.shape)
         print("")
 
@@ -502,20 +502,22 @@ class clfAnalysis:
         plt.savefig(file_img)
 
         print("-> individualizing")
-        pcd_tmp = np.array(self.pcd_results_validation.points)[:, :2]
+        pcd_tmp = np.array(self.pcd_results_validation.points)  # [:, :2]
 
         kmeans = KMeans(n_clusters=num_tree).fit(pcd_tmp)
         Classification_cluster = kmeans.labels_
 
         print("-> height_calculation")
+        alrutas_tree = {}
         pcd_z = np.array(self.pcd_results_validation.points)[:, 2]
 
         for clas_tmp in set(Classification_cluster):
             pos_clas_tmp = np.where(Classification_cluster == clas_tmp)
             pcd_z_tmp = pcd_z[pos_clas_tmp]
             altura_clas_tmp = np.amax(pcd_z_tmp) - np.amin(pcd_z_tmp)
-            print(clas_tmp)
-            print(altura_clas_tmp)
+            alrutas_tree[clas_tmp] = altura_clas_tmp
+
+        print(alrutas_tree)
 
         print("-> save_PCD_individualized")
         file = ""
