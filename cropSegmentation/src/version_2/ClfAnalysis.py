@@ -1,3 +1,4 @@
+from cgi import print_arguments
 import joblib
 import numpy as np
 import open3d as o3d
@@ -512,7 +513,9 @@ class clfAnalysis:
         for clas_tmp in set(Classification_cluster):
             pos_clas_tmp = np.where(Classification_cluster == clas_tmp)
             pcd_z_tmp = pcd_z[pos_clas_tmp]
-            print(pcd_z_tmp.shape)
+            altura_clas_tmp = np.amax(pcd_z_tmp) - np.amin(pcd_z_tmp)
+            print(clas_tmp)
+            print(altura_clas_tmp)
 
         print("-> save_PCD_individualized")
         file = ""
