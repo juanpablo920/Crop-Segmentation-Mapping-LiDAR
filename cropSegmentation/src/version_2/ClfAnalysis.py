@@ -456,7 +456,7 @@ class clfAnalysis:
         print("")
 
         print("-> lowResolutionPcd")
-        lowPcd_xyz = self.pcd_results_validation.uniform_down_sample(5)
+        lowPcd_xyz = self.pcd_results_validation.uniform_down_sample(10)
         lowPcd_xyz = np.array(lowPcd_xyz.points)[:, :2]
         print("-> low datos:", lowPcd_xyz.shape)
         print("")
