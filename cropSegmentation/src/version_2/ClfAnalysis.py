@@ -508,6 +508,12 @@ class clfAnalysis:
         kmeans = KMeans(n_clusters=num_tree).fit(pcd_results_validation)
         Classification_cluster = kmeans.labels_
 
+        print("-> height_calculation")
+
+        print(type(Classification_cluster))
+        list_set = set(Classification_cluster)
+        print(list_set)
+
         print("-> save_PCD_individualized")
         file = ""
         file += self.parSer.prefix
