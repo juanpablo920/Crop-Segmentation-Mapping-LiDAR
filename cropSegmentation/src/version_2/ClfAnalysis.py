@@ -501,18 +501,16 @@ class clfAnalysis:
         plt.savefig(file_img)
 
         print("-> individualizing")
-        pcd_tmp = np.array(self.pcd_results_validation.points)  # [:, :2]
-        print(pcd_tmp)
+        pcd_tmp = np.array(self.pcd_results_validation.points)[:, :2]
 
         kmeans = KMeans(n_clusters=num_tree).fit(pcd_tmp)
         Classification_cluster = kmeans.labels_
 
         print("-> height_calculation")
         pcd_z = np.array(self.pcd_results_validation.points)[:, 2]
-        print(pcd_z)
+        print(pcd_z.shape)
 
         for clas_tmp in set(Classification_cluster):
-            print(clas_tmp)
             pos_clas_tmp = np.where(Classification_cluster == clas_tmp)
 
         print("-> save_PCD_individualized")
