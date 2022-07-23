@@ -517,8 +517,6 @@ class clfAnalysis:
             altura_clas_tmp = np.amax(pcd_z_tmp) - np.amin(pcd_z_tmp)
             alrutas_tree[clas_tmp] = altura_clas_tmp
 
-        print(alrutas_tree)
-
         print("-> save_PCD_individualized")
         file = ""
         file += self.parSer.prefix
@@ -526,11 +524,14 @@ class clfAnalysis:
         file += "individual_xy_" + self.parSer.data_file_valid
 
         with open(file, 'w') as f:
-            f.write("X Y Z Classification\n")
+            f.write("X Y Z Classification height\n")
             for idx, XYZ in enumerate(self.pcd_results_validation.points):
                 X, Y, Z = XYZ
+                num_tree_tmp = Classification_cluster[idx]
+                alruta_tree_tmp = alrutas_tree[num_tree_tmp]
                 f.write(str(X)+" "+str(Y)+" "+str(Z) +
-                        " "+str(Classification_cluster[idx])+"\n")
+                        " "+str(num_tree_tmp) +
+                        " "+str(alruta_tree_tmp)+"\n")
 
 
 if __name__ == '__main__':
